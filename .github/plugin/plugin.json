@@ -15,9 +15,9 @@
     "ai-workflow",
     "agent-memory"
   ],
-  "agents": "agents/",
-  "skills": "skills/",
-  "commands": "commands/",
-  "hooks": "hooks.json",
-  "mcpServers": "mcp.json"
+  "agents": "./agents/",
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "hooks": "./hooks.json",
+  "mcpServers": "./mcp.json"
 }
