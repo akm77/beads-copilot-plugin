@@ -1,6 +1,6 @@
 ---
 description: Manage issue templates for streamlined issue creation
-argument-hint: list|show|create [template-name]
+argument-hint: "list|show|create [template-name]"
 ---
 
 Manage issue templates for streamlined issue creation.

@@ -1,6 +1,6 @@
 ---
 description: Quick start guide for bd workflows (deprecated)
-argument-hint: []
+argument-hint: "[]"
 ---
 
 **Note:** The `bd quickstart` command is deprecated. See the [Quick Start](https://gastownhall.github.io/beads/getting-started/quickstart) on the documentation site.
