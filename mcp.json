@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "beads": {
+      "command": "uvx",
+      "args": ["beads-mcp"],
+      "env": {}
+    }
+  }
+}
