@@ -35,11 +35,11 @@ git clone https://github.com/akm77/beads-copilot-plugin.git
 copilot plugin install ./beads-copilot-plugin
 ```
 
-### From marketplace (if registered)
+### From marketplace
 
 ```bash
-copilot plugin marketplace add <MARKETPLACE_SPEC>
-copilot plugin install beads@<marketplace-name>
+copilot plugin marketplace add akm77/copilot-marketplace
+copilot plugin install beads@akm77-marketplace
 ```
 
 > **Note:** The Copilot CLI plugin ecosystem is still evolving. The installation commands above
