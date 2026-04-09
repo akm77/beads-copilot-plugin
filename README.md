@@ -6,7 +6,7 @@ This is a full-featured adaptation of the [original Claude Code plugin](https://
 
 ## Features
 
-- **25+ slash commands** — `/beads:ready`, `/beads:create`, `/beads:show`, `/beads:close`, and more
+- **25 slash commands** — `/beads:ready`, `/beads:create`, `/beads:show`, `/beads:close`, and more
 - **Autonomous task agent** — finds and completes ready work
 - **Deep skill integration** — persistent memory, dependency tracking, compaction survival
 - **MCP server** — full beads-mcp integration for natural language interaction
@@ -16,6 +16,7 @@ This is a full-featured adaptation of the [original Claude Code plugin](https://
 ## Prerequisites
 
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli) installed
+  <!-- TODO: Update link when stable Copilot CLI plugin system docs are published -->
 - [beads CLI](https://github.com/gastownhall/beads) (`bd`) installed and in PATH (v0.60.0+)
 - [uv](https://github.com/astral-sh/uv) package manager (for MCP server)
 
@@ -24,15 +25,26 @@ This is a full-featured adaptation of the [original Claude Code plugin](https://
 ### From GitHub
 
 ```bash
-copilot plugin install gastownhall/beads-copilot-plugin
+copilot plugin install akm77/beads-copilot-plugin
 ```
 
 ### From local clone
 
 ```bash
-git clone https://github.com/gastownhall/beads-copilot-plugin.git
+git clone https://github.com/akm77/beads-copilot-plugin.git
 copilot plugin install ./beads-copilot-plugin
 ```
+
+### From marketplace (if registered)
+
+```bash
+copilot plugin marketplace add <MARKETPLACE_SPEC>
+copilot plugin install beads@<marketplace-name>
+```
+
+> **Note:** The Copilot CLI plugin ecosystem is still evolving. The installation commands above
+> reflect the current documentation. If something doesn't work, try the local clone method
+> or check `copilot plugin --help` for the latest syntax.
 
 ### Verify installation
 
@@ -107,7 +119,7 @@ beads-copilot-plugin/
 ├── mcp.json                 # MCP server configuration
 ├── agents/
 │   └── task-agent.agent.md  # Autonomous task completion agent
-├── commands/                # 25+ slash commands
+├── commands/                # 25 slash commands
 │   ├── ready.md
 │   ├── create.md
 │   ├── show.md
@@ -121,16 +133,20 @@ beads-copilot-plugin/
         └── resources/       # 15 deep-dive guides
 ```
 
-## How It Compares
+## Relationship to the Original
 
-| Feature | This Plugin | Author's Copilot Integration |
+This plugin builds on the excellent work by [Steve Yegge](https://github.com/steveyegge) and the [beads](https://github.com/gastownhall/beads) project. The original repository provides a [Copilot integration guide](https://github.com/gastownhall/beads/blob/main/docs/COPILOT_INTEGRATION.md) based on MCP server setup and instruction files — a solid foundation that works well.
+
+This plugin takes that further by packaging the full feature set of the [Claude Code plugin](https://github.com/gastownhall/beads/tree/main/claude-plugin) into the Copilot CLI plugin format, making it installable with a single command. We hope this stays true to the author's original vision while making beads more accessible to Copilot CLI users.
+
+| Feature | This Plugin | Original Copilot Integration |
 |---------|-------------|------------------------------|
-| Slash commands | 25+ commands | None |
-| Agent | Autonomous task agent | None |
-| Skill with resources | Full skill + 15 guides | Instructions file only |
-| Hooks | SessionStart + PreCompact | None |
-| MCP server | Included | Manual setup required |
-| Installation | `copilot plugin install` | Manual file editing |
+| Slash commands | 25 commands | Via MCP tools |
+| Agent | Autonomous task agent | — |
+| Skill with resources | Full skill + 15 guides | Instruction file |
+| Hooks | SessionStart + PreCompact | — |
+| MCP server | Bundled | Manual setup |
+| Installation | `copilot plugin install` | Manual configuration |
 
 ## Updating
 
@@ -138,11 +154,15 @@ beads-copilot-plugin/
 copilot plugin update beads
 ```
 
+> For local installs, re-run `copilot plugin install ./beads-copilot-plugin` after pulling new changes.
+
 ## Uninstalling
 
 ```bash
 copilot plugin uninstall beads
 ```
+
+> The name `beads` comes from the `name` field in `plugin.json`.
 
 ## License
 
