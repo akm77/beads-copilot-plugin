@@ -1,5 +1,7 @@
 # beads-copilot-plugin
 
+**English** | [Русский](README.ru.md)
+
 GitHub Copilot CLI plugin for [beads](https://github.com/gastownhall/beads) — a distributed graph issue tracker for AI agents, powered by Dolt.
 
 This is a full-featured adaptation of the [original Claude Code plugin](https://github.com/gastownhall/beads/tree/main/claude-plugin) for GitHub Copilot CLI, providing the same quality of integration.
