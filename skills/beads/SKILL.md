@@ -44,6 +44,15 @@ bd --version  # Requires v0.60.0+
 
 Essential commands: `bd ready`, `bd create`, `bd show`, `bd update`, `bd close`, `bd dolt push`
 
+## MCP Usage (Copilot CLI)
+
+When using beads via MCP tools, follow this order:
+
+1. **Always call `context(action="set", workspace_root="...")` first** — required before any other MCP operation
+2. **Never pass custom `id` field to `create`** — let beads auto-generate IDs (e.g. `crm-a2n`)
+3. **Never call multiple write operations in parallel** — embedded Dolt supports only one writer at a time. Use sequential calls for `create`, `update`, `close`, `dep`
+4. **Do not call `context(action="init")`** if `.beads/` directory already exists — use `context(action="set")` instead
+
 ## Session Protocol
 
 1. `bd ready` — Find unblocked work
