@@ -164,6 +164,18 @@ copilot plugin uninstall beads
 
 > The name `beads` comes from the `name` field in `plugin.json`.
 
+## Tested
+
+Integration-tested with Copilot CLI v1.0.21-1.0.22 building a complete mini CRM application (Python + SQLAlchemy + SQLite). The plugin successfully handled epic creation, 13 task tracking issues with dependencies, claim/close lifecycle, and `bd prime` hooks across a full development workflow.
+
+Demo project: [copilot-mini-crm](https://github.com/akm77/copilot-mini-crm)
+
+## Known Limitations (Copilot CLI)
+
+- **Permission fatigue**: Each distinct beads MCP tool name (`context`, `create`, `stats`, `list`, `claim`, `close`, etc.) requires a separate user approval prompt, even after selecting "approve all tools from server beads". This is a Copilot CLI behavior, not a beads plugin issue.
+- **Parallel writes**: Embedded Dolt supports only one writer at a time. If Copilot dispatches multiple `create` calls in parallel, some will fail with a lock error. Copilot typically recovers by retrying sequentially.
+- **Worktree permissions**: When using git worktrees, beads may warn about `.beads` directory permissions. Run `chmod 700 <worktree>/.beads` to resolve.
+
 ## License
 
 MIT — same as [beads](https://github.com/gastownhall/beads).

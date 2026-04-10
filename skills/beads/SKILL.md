@@ -52,6 +52,9 @@ When using beads via MCP tools, follow this order:
 2. **Never pass custom `id` field to `create`** — let beads auto-generate IDs (e.g. `crm-a2n`)
 3. **Never call multiple write operations in parallel** — embedded Dolt supports only one writer at a time. Use sequential calls for `create`, `update`, `close`, `dep`
 4. **Do not call `context(action="init")`** if `.beads/` directory already exists — use `context(action="set")` instead
+5. **In git worktrees**, if beads warns about `.beads` permissions, run `chmod 700 <worktree>/.beads` before continuing
+
+> **Known Copilot CLI behavior**: Each distinct MCP tool name (`context`, `create`, `stats`, `list`, `claim`, `close`, etc.) requires a separate user approval, even after selecting "approve all tools from server beads". This is a Copilot CLI limitation, not a beads issue. Approving `create` does not auto-approve `claim` or `close`. Plan for multiple approval prompts when working with beads MCP tools.
 
 ## Session Protocol
 
